@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @ApiTags('Users') // Agrupa os endpoints no Swagger
 @Controller('user')
@@ -26,8 +27,8 @@ export class UserController {
     @ApiOperation({ summary: 'Cria um novo usuário' })
     @ApiResponse({ status: 201, description: 'Usuário criado com sucesso.' })
     @Post()
-    create(@Body() user: User): Promise<User>{
-        return this.userService.create(user);
+    create(@Body() createUserDto: CreateUserDto): Promise<CreateUserDto>{
+        return this.userService.create(createUserDto);
     }
 
     @ApiOperation({ summary: 'Atualiza um usuário existente' })
