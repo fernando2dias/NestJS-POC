@@ -11,12 +11,13 @@ import { UserModule } from './user/user.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'sua-senha',
+      password: '1234',
       database: 'postgres',
       autoLoadEntities: true,
-      synchronize: true
-    }), 
-    UserModule],
+      synchronize: true,
+    }),
+    UserModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
